@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CW 422</title>
+  </head>
+  <body>
+    <script>
+      function scramble(str1, str2) {
+        str2 = str2.split("");
+        str1 = str1.split("");
+
+        let length = str1.length;
+        console.log(length);
+
+        let arr = [];
+
+        for (let i = 0; i < str1.length; i++) {
+          if (str1.includes(str2[i])) {
+            arr.push(str2[i]);
+          }
+        }
+
+        if (arr.join("") === str2.join("")) {
+          return true;
+        } else {
+          return false;
+        }
+
+        const go = str1.reduce((a, b) => {
+          if (a[b]) {
+            a[b]++;
+          } else {
+            a[b] = 1;
+          }
+          return a;
+        }, {});
+
+        for (const proponent in Object.values(go)) {
+          console.log(proponent);
+        }
+      }
+
+      console.log(scramble("aabbcamaomsccdd", "3"));
+    </script>
+  </body>
+</html>

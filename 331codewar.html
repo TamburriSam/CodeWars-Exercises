@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CW 3/31</title>
+  </head>
+  <body>
+    <script>
+      function arrayDiff(a, b) {
+        let answer = [];
+
+        let targetLength;
+
+        if (a.length > b.length) {
+          targetLength = a.length;
+        } else {
+          targetLength = b.length;
+        }
+
+        for (i = 0; i < targetLength; i++) {
+          if (a.length === 0) {
+            return [];
+          } else if (a.length > 1 && b.length === 0) {
+            return a;
+          } else if (!b.includes(a[i])) {
+            answer.push(a[i]);
+          }
+        }
+
+        return answer;
+      }
+
+      console.log(
+        arrayDiff(
+          [
+            7,
+            6,
+            -15,
+            10,
+            15,
+            20,
+            13,
+            2,
+            12,
+            -7,
+            -10,
+            -7,
+            -6,
+            15,
+            -19,
+            -11,
+            -6,
+            11,
+            9,
+            1,
+          ],
+          [-10, -15, 11, 7, -19, 10, 15]
+        )
+      );
+    </script>
+  </body>
+</html>

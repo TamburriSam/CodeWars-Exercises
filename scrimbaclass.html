@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Scrimba</title>
+</head>
+<body>
+    <script>
+
+
+class Product {
+    constructor(name, price, discountable){
+        this.name=name;
+        this.price=price;
+        this.discountable=discountable;
+    }
+
+
+    isDiscountable(){
+        return this.discountable;
+    }
+}
+
+class SaleProduct extends Product {
+    constructor(name, price, discountable, percentOff){
+        super(name, price, discountable);
+        this.percentOff = percentOff
+    }
+
+    getSalePrice() {
+        if (super.isDiscountable()) {
+            return this.price * ((100 - this.percentOff)/ 100)
+        }else {
+            return `${this.name} is not eligible for a discount`
+        }
+    }
+}
+
+const saleProduct1 = new SaleProduct("cofee maker", 99, true, 20);
+
+console.log(saleProduct1.getSalePrice())
+
+
+
+
+
+
+
+class Product2 {
+
+    constructor(name, price, isDiscountable){
+        this._name = name;
+        this._price = price;
+        this.isDiscountable = isDiscountable
+    }
+
+    get name(){
+        return this._name;
+    }
+
+    set name(name){
+        if(typeof name !== 'string'){
+            return this._name
+        }else {
+            this._name = name;
+        }
+    }
+
+    get price(){
+        return this._price;
+    }
+
+    set price(price){
+        if(typeof price !== "number"){
+            return this._price
+        } else {
+            this._price = price;
+        }
+    }
+}
+
+const product1 = new Product2 ( 'Coffee maker', 99.95, false);
+
+
+
+product1.price = 30
+
+product1.name = 'John'
+
+console.log(product1.price)
+console.log(product1.name)
+
+//same as??
+
+class Product3 {
+
+constructor(name, price, isDiscountable){
+    this._name = name;
+    this.price = price;
+    this.isDiscountable = isDiscountable
+}
+
+setPrice(price){
+    return this.price = price
+}
+
+}
+
+const product4 = new Product3 ( 'Coffee maker', 99.95, false);
+
+console.log(product4.setPrice(9))
+
+console.log(product4)
+        
+
+
+
+
+
+
+
+
+
+
+const isAuth = true;
+const user = {
+  favorites: []
+};
+
+class Product9 {
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
+    this.favoriteProduct = () => {
+        user.favorites.push(this.name);
+      console.log(`${this.name} favorited!`); 
+    }
+  }
+
+  handleFavoriteProduct() {
+    if (isAuth) {
+      setTimeout(this.favoriteProduct.bind(this), 1000);
+    } else {
+      console.log("You must be signed in to favorite products!");
+    }
+  }
+
+   favoriteProduct() {
+     user.favorites.push(this.name);
+     console.log(`${this.name} favorited!`);
+   }
+}
+
+const product8 = new Product9('Coaster', 89.99)
+product8.handleFavoriteProduct()
+
+
+
+
+
+    </script>
+</body>
+</html>

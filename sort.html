@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort</title>
+</head>
+<body>
+    <script>
+
+
+let arrayOne = [1,3,5,2,90,20];
+
+let stringOne = ["dog", "wolf", "by", "family", "eaten"];
+
+let objArr = [
+    { name: "Quiet Samurai", age: 22 },
+    { name: "Arrogant Ambassador", age: 100 },
+    { name: "Misunderstood Observer", age: 2 },
+    { name: "Unlucky Swami", age: 77 }
+]
+
+let arrayOneAns = arrayOne.sort(function(a,b){
+    if(a<b){
+        return -1
+    } else {
+        return 1
+    }
+})
+
+console.log(arrayOneAns)
+
+let arrayTwoAns = arrayOne.sort(function(a,b){
+    if(a<b){
+        return 1
+    } else {
+        return -1
+    }
+})
+
+console.log(arrayTwoAns)
+
+
+let stringOneAns = stringOne.sort(function(a,b){
+    if(a.length > b.length){
+        return 1
+    } else{
+        return -1
+    }
+})
+
+console.log(stringOneAns);
+
+let alphabetical = stringOne.sort(function(a,b){
+    if(a.charAt(0) > b.charAt(0)){
+        return 1;
+    } else {
+        return -1
+    }
+})
+
+console.log(alphabetical);
+
+let byAge = objArr.sort(function(a,b){
+    if(a.age > b.age){
+        return 1;
+    } else {
+        return -1
+    }
+})
+
+console.log(byAge)
+
+const colors = {
+    yellow: '#ff0',
+    blue: "#f00",
+    orange: '#f60'
+}
+
+colors.red = '#foo';
+colors.red = '#f00';
+
+function getColor(key){
+   return colors[key];
+}
+
+console.log(colors)
+console.log(getColor('blue'))
+
+
+
+const user = {
+  name: "Reed",
+  username: "Reedbarger",
+  email: "reed@gmail.com",
+  details: {
+    title: "Programmer"  
+  }  
+};
+  
+
+//const {name, details:{title}} = user;
+
+function displayUserBio({name, details:{title}}){
+    console.log(`${name} ${title}`)
+}
+
+displayUserBio(user)
+
+
+const recommendations = {
+    pancakes: 'Nowhere Man',
+    riceBowls: 'Pompoko',
+    beer: 'The Craft Beer Co.',
+    coffee: 'Coffee Roasters',
+    small_plates: 'Venetian Plates',
+    music: { 
+        traditional: 'Fiddler\'s Elbow', 
+        jazz: 'The Paris House'
+    }
+}
+
+const {coffee, beer, music:{traditional, jazz}} = recommendations;
+
+function display({music:{traditional, jazz}}){
+    console.log(`${traditional} ${jazz}`)
+}
+
+display(recommendations)
+
+
+const user1 = {
+  name: "",
+  username: "",
+  phoneNumber: "",
+  email: "",
+  password: "",
+  verified: true
+};
+
+const newUser = {
+  username: "ReedBarger",
+  email: "reed@gmail.com",
+  password: "mypassword"  
+};
+
+const createdUser = {...user , ...newUser, verified:false};
+ console.log(createdUser)
+
+ const nums = {
+     1:1,
+     true:true
+ }
+
+ console.log(Object.keys(nums))
+
+ const map1 = new Map([
+     [1,1],
+     [true, true]
+ ]);
+
+ map1.set('key', 'value');
+
+  map1.forEach((value,key) => {
+    console.log(key,value)
+ }); 
+
+ console.log([...map1.keys()])
+
+
+const user3 = {name : 'john'}
+const user4 = {name : 'mary'}
+
+const secretKey1 = '30493043';
+const secretKey2 = '3049039430';
+
+const map2 = new WeakMap ([
+    [user3, secretKey1],
+    [user4, secretKey2]
+])
+
+const key = map2.get(user3)
+console.log(key)
+
+console.log(map2)
+
+
+
+const favouritePlace = {
+    music: "jazz",
+    name: "Paris House"
+};
+
+const map9 = new Map ([
+    ['music', 'jazz'],
+    ['name', 'paris house']
+])
+map9.set('visited')
+map9.set('averageBill', '34')
+
+
+console.log([...map1.keys()])
+console.log(map1.get('name'))
+
+//console.log(Object.assign({}, user1, newUser, {verified:false}))
+
+
+const userData = { 
+  username: "Reed",
+  title: "JavaScript Programmer",
+  getBio:() => {
+    console.log(`User ${this.username} is a ${this.title}`);
+  },
+  askToFriend() {
+    setTimeout(() => {
+      console.log(`Would you like to friend ${this.username}?`);   
+    }, 2000);  
+  } 
+}
+
+userData.askToFriend();
+
+
+//FCC card count
+
+
+
+
+
+
+
+  var count = 0;
+
+function cc(card) {
+  // Only change code below this line
+
+
+  if(card >= 2 && card <=6){
+      count++;
+  }else if (card >=7 && card <= 9){
+      count;
+  } else {
+      count--;
+  }
+
+  if(count > 0){
+      return count + ' Bet'
+  }else if (count === 0){
+      return count + ' Hold'
+  } else {
+      return count + ' Hold'
+  }
+
+
+  return "Change Me";
+  // Only change code above this line
+}
+
+
+
+console.log(cc(2), cc('J'), cc(9), cc(2), cc(7))
+
+//FCC record colletion
+// Setup
+var collection = {
+  2548: {
+    albumTitle: 'Slippery When Wet',
+    artist: 'Bon Jovi',
+    tracks: ['Let It Rock', 'You Give Love a Bad Name']
+  },
+  2468: {
+    albumTitle: '1999',
+    artist: 'Prince',
+    tracks: ['1999', 'Little Red Corvette']
+  },
+  1245: {
+    artist: 'Robert Palmer',
+    tracks: []
+  },
+  5439: {
+    albumTitle: 'ABBA Gold'
+  }
+};
+
+// Only change code below this line
+function updateRecords(object, id, prop, value) {
+
+    if(prop !== 'tracks' && value !==''){
+        object[id][prop] = value; 
+
+
+    } else if (object[id][prop].hasOwnPropery('tracks') && !object[id][prop] === 'tracks'){
+        let newArray = [];
+        newArray.push(object[id][prop][value]);
+
+    } else if ( object[id][prop] === 'tracks' && object[id][prop][value] !== ''){
+        object[id][prop][value] += object[id][prop]
+
+    } else if (object[id][prop][value] === ''){
+        delete object[id][prop]
+    }
+
+
+
+  return object;
+}
+
+updateRecords(collection, 5439, 'artist', 'ABBA');
+
+
+
+
+function chunkArrayInGroups(arr, size) {
+    let newArray = [];
+  let yoyo = arr.slice(size)
+  let boo = arr.slice(0,size);
+
+  newArray.push(boo);
+  newArray.push(yoyo)
+  return newArray;
+}
+
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2))
+
+
+
+
+
+var toup = String.fromCharCode(123, 66, 125)
+
+var sentence = 'marco polo'
+
+console.log(sentence.charCodeAt(3))
+
+function quickcaesar(letter, number){
+
+    let index = letter.charCodeAt(0);
+
+    for(let i = 0; i <= number; i++){
+        index += i;
+        letter = String.fromCharCode(index)
+    }
+
+    return letter
+}
+
+console.log(quickcaesar('p',2))
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kata</title>
+</head>
+<body>
+    
+    <script>
+
+
+function filter_list(l) {
+  let numbersOnly = l.filter(number => typeof number === 'number');
+  return numbersOnly
+}
+
+
+console.log(filter_list([1,2,'a','b']));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function toWeirdCase(string){
+  
+let something = [];
+
+let anotherthing = [];
+
+string = string.split(' ');
+string = string.join(' ');
+string = string.split('')
+
+   for(let i = 0; i < string.length; i++){
+    if(string.indexOf(string[i]) % 2 === 0){
+      something.push(string[i].toUpperCase());
+    } else {
+        something.push(string[i]);
+    }
+
+  
+}
+
+
+return something.join('')
+
+
+}
+
+
+console.log(toWeirdCase('This is a test'))
+
+
+    </script>
+</body>
+</html>

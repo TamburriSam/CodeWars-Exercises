@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2-22 Practice</title>
+  </head>
+  <body>
+    <a href="https://javascript.info/array-methods"
+      >Javascript array methods. Really learn these and understand all of the
+      parameters it takes. Do exercises at bottom</a
+    >
+
+    <script>
+      //array destructuring
+
+      //regex
+
+      /* function anagrams(word, words) {
+  //let splitWords = words.join(' ');
+let sameLength = [];
+
+
+
+
+  for(let i = 0; i < words.length; i++){
+    if (word.length === words[i].length){
+        sameLength.push(words[i])
+    }
+  }
+
+
+  for(let i = 0; i < sameLength.length;i++){
+      for(let j = 0; j < sameLength.length; j++){
+           console.log(word.includes(sameLength[j][i]) + ' '+sameLength[i][j]); 
+
+         
+      }
+  
+  } 
+
+  console.log(sameLength)
+
+  
+}
+
+console.log(anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer'])) */
+
+      const circle = {
+        radius: 1,
+        location: {
+          x: 1,
+          y: 1,
+        },
+        isVisible: true,
+        draw: function () {
+          console.log("draw");
+        },
+      };
+
+      const circle2 = {
+        radius: 1,
+        location: {
+          x: 1,
+          y: 1,
+        },
+        isVisible: true,
+        draw: function () {
+          console.log("draw");
+        },
+      };
+
+      //getters and setters
+      const person = {
+          firstName: 'Sam',
+          lastName: 'Tamburri',
+          get fullName(){
+              return `${person.firstName} ${person.lastName}`},
+          set fullName(value){
+            const parts = value.split(' ');
+            this.firstName = parts[0]
+            this.lastName = parts[1];
+          }
+      }
+
+      person.fullName = 'Hon Smith'
+      console.log(person)
+
+      //factory function
+      function createCircle(radius, location) {
+        return {
+          radius,
+          draw() {
+            console.log("draw");
+          },
+        };
+      }
+
+    const circle1 = createCircle(1)
+    const circle3 = createCircle(2)
+
+    console.log(circle1)
+    console.log(circle3)
+
+
+    function cowFactory(name){
+        function formalName(){
+            return name + ' the cow'
+        }
+        return {
+            talk:function(){
+                console.log('Moo, my name is ' + formalName())
+            }
+        }
+    }
+
+    function Name(name, location, sentence){
+        this.name = name;
+        this.location = location;
+        this.sentence = function(){
+            return this.name + ' ' + this.location
+        }
+    }
+
+    let me = new Name('Sam', 'new york')
+    console.log(me.sentence())
+
+    var daisy = cowFactory('Daisy')
+    var sinny = cowFactory('Sinny')
+    console.log(daisy.talk())
+    console.log(sinny.talk())
+
+
+function Person(first, last, age, gender, interests) {
+  this.name = {
+    first,
+    last
+  };
+  this.age = age;
+  this.gender = gender;
+  this.interests = interests;
+};
+
+Person.prototype.greeting = function() {
+  alert('Hi! I\'m ' + this.name.first + '.');
+};
+
+function Teacher(first, last, age, gender, interests, subject){
+    Person.call(this,first,last,age,gender,interests);
+    this.subject = subject;
+}
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

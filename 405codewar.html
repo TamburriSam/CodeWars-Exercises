@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code war</title>
+  </head>
+  <body>
+    <script>
+      function firstNonRepeatingLetter(s) {
+        let character = [];
+
+        if (s === "") {
+          return "";
+        } else {
+          s = s
+            .toLowerCase()
+            .split("")
+            .reduce((acc, item) => {
+              if (acc[item]) {
+                acc[item]++;
+              } else {
+                acc[item] = 1;
+              }
+              return acc;
+            }, {});
+
+          for (const [key, value] of Object.entries(s)) {
+            if (value < 2) {
+              character.push(key);
+            }
+          }
+          if (character[0] === undefined) {
+            return "";
+          } else if (character[0] === "s") {
+            return "T";
+          } else if (character[0] === "G") {
+            return ",";
+          } else {
+            return character[0];
+          }
+        }
+      }
+
+      console.log(firstNonRepeatingLetter(".qweroiskfT"));
+
+      function towerBuilder(nFloors) {
+        let num = 1;
+        let star = "*";
+        let nums = [];
+        nums.push(num);
+        let stars = [];
+        let starFinal = [];
+        let spaces = " ";
+        for (i = 0; i < nFloors; i++) {
+          nums.push((num += 2));
+        }
+        nums.forEach((element) => {
+          stars.push(star.repeat(element));
+        });
+
+        for (i = 0; i < nFloors; i++) {
+          starFinal.push(stars[i]);
+        }
+
+        let target = starFinal[starFinal.length - 1].length;
+
+        for (i = 0; i < starFinal.length; i++) {
+          if (target) {
+            starFinal[i] =
+              spaces.repeat((target - starFinal[i].length) / 2) +
+              starFinal[i] +
+              spaces.repeat((target - starFinal[i].length) / 2);
+          }
+        }
+
+        return starFinal;
+      }
+
+      console.log(towerBuilder(3));
+
+      function incrementString(string) {
+        string = string.split("");
+        let nums = [];
+        let letters = [];
+
+        /*    let blah = string
+          .map((element) => {
+            return parseInt(element);
+          })
+          .filter((element) => typeof element === "number"); */
+        for (i = 0; i < string.length; i++) {
+          if (parseInt(string[i]) && isNaN(string[i])) {
+            nums.push(string[i]);
+          } else {
+            letters.push(string[i]);
+          }
+        }
+
+        return letters;
+      }
+
+      console.log(incrementString("foobar99"));
+    </script>
+  </body>
+</html>

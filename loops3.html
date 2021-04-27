@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Loops: Task 3</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+
+    <section class="preview">
+
+
+
+    </section>
+
+  </body>
+  <script>
+  //  let i = 500;
+  /*   let para = document.createElement('p');
+    let section = document.querySelector('section');
+
+    function isPrime(num) {
+      for(let i = 2; i < num; i++) {
+        if(num % i === 0) {
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    for(i = 500; i >= 2; i--){
+        isPrime(i);
+        if (isPrime(i) === false)
+        continue;
+        console.log(i, isPrime(i))
+       
+     let para = document.createElement('p');
+      para.appendChild(document.createTextNode(isPrime(i) + ' ' + i))
+      section.appendChild(para)
+    } */
+    
+  let odd = [1, 2, 3]
+
+
+    function findOutlier(num){
+      let outlier = '';
+      for(let i = 0; i<num.length;i++){
+        num[i] % 2? outlier = num[i]+ 'outlier' : console.log(num[i])
+      }
+      console.log(outlier)
+    }
+
+    findOutlier(odd)
+
+
+ 
+  </script>
+
+</html>

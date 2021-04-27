@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeWars</title>
+</head>
+<body>
+    <script>
+
+//ONE
+/* 
+var array=[];
+const wave = (str) => {
+    if(typeof str === 'string' && str === str.toLowerCase()){
+       for (let index = 0; index < str.length; index++) {
+       if (str[index] === ' ') continue;
+       waveChar=str.charAt(index).toUpperCase();
+       preStr=str.substring(0,index);
+       postStr=str.substring(index,str.length-1);
+        array.push(preStr+waveChar+postStr);
+    }
+    
+    }else{
+        alert(`${str} is either not a string or not lowercase`);
+    }
+}
+wave("hello");
+console.log(array);
+
+//TWO
+function reverseWords(str) {
+  str = str.split(' ');
+
+  fuzzyArray = []
+
+  for(i=0;i<str.length;i++){
+    words = str[i].split('').reverse().join('');
+
+   
+    
+
+    fuzzyArray.push(words)
+  }
+
+
+
+  return fuzzyArray.join(' ')
+}
+
+console.log(reverseWords('The quick brown fox jumps over the lazy dog')) */
+
+//return the total number of smiling faces in the array
+function countSmileys(arr) {
+let smileyArray = [];
+
+for(let i = 0; i < arr.length; i++){
+
+if(arr[i].length === 2){
+  if(arr[i][0] === ':' || arr[i][0] === ';'){
+      if(arr[i][1] === ')' || arr[i][1] === 'D'){
+          smileyArray.push(arr[i])
+      }
+  }
+
+}
+      
+    else if (arr[i].length === 3){
+        if(arr[i][0] === ':' || arr[i][0] === ';'){
+            if(arr[i][1] === '-' || arr[i][1] === '~'){
+                if(arr[i][2] === ')' || arr[i][2] === 'D'){
+                smileyArray.push(arr[i])
+    }
+}
+    }
+}
+}
+
+return smileyArray.length
+}
+
+
+
+
+
+
+console.log(countSmileys([';]', ':[', ';*', ':$', ';-D']))
+
+
+    </script>
+</body>
+</html>

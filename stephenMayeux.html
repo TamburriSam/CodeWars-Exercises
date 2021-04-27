@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stephen Mayeux Classes Review</title>
+</head>
+<body>
+    
+<script>
+
+//react is JS class based
+
+//reg constructor
+function Person(firstName, lastName){
+    this.firstName=firstName;
+    this.lastName=lastName;
+    this.hasJob = false;
+
+    this.fullName = function(){
+        return this.firstName + ' '+this.lastName 
+    }
+
+    this.setFirstName = function(firstName){
+        this.firstName = firstName;
+    }
+
+    this.setLastName = function(lastName){
+        this.lastName = lastName;
+    }
+}
+
+let person1 = new Person('Sam', 'Tamburri')
+let person2 = new Person('Bill', 'Gates')
+
+console.log(person1)
+
+console.log(person2.lastName)
+
+//class version
+
+class Person1 {
+
+    static get species(){
+        return 'Homo Sapiens'
+    }
+
+    static speciesSentence(){
+        return `Humans are classified as ${this.species}`
+    }
+
+    constructor(firstName, lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.hasJob = false;
+    }
+
+    fullName() {
+        return `${this.firstName} ${this.lastName}`
+    }
+
+    setFirstName(firstName) {
+        this.firstName=firstName;
+    }
+
+    setLastName(lastName){
+        this.lastName=lastName;
+    }
+
+    set fullName(name){
+        name = name.split(' ');
+        this.setFirstName(name[0]);
+        this.setLastName(name[1]);
+    }
+
+}
+
+class Worker extends Person {
+    constructor(firstName, lastName, job){
+        super(firstName, lastName);
+        this.job = job;
+        this.hasJob = true;
+    }
+
+    setJob(job){
+        this.job=job;
+    }
+
+    get biography() {
+        const bio = `${this.fullName()} is a ${this.job}`;
+        return bio;
+    }
+}
+
+
+class People {
+    static species() {
+        return 'Homo Sapiens'
+    }
+
+    static speciesSentence() {
+        return `Human are classified as ${this.species()}`
+    }
+}
+
+const person9 = new Person1 ('Sam', 'Tamburri')
+console.log(person9.fullName)
+
+const worker1 = new Worker('Stephen', 'Mayeux', 'Software Developer')
+
+console.log(worker1.fullName())
+console.log(worker1.biography)
+
+const people1 = new People()
+
+console.log(People.speciesSentence())
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

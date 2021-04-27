@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Scrimba</title>
+</head>
+<body>
+    <script>
+
+
+        const todos =[];
+
+        const todo1 = {
+            text: 'do homework',
+            complete: false
+        };
+
+        const todo2 = {
+            text: 'do laundry',
+            complete: false
+        };
+
+       const index = [todos.length-1]
+
+        todos.push(todo1, todo2)
+        todos.pop()
+
+        console.log(todos);
+
+       //array challenge
+       let favouriteSongs = [];
+
+    favouriteSongs.push('eye of the tiger', 'come as you are', 'popstar');
+
+    let lastSong = [favouriteSongs.length - 1]
+
+    console.log(favouriteSongs[lastSong])
+
+    favouriteSongs.pop()
+
+    console.log(favouriteSongs)
+    //continue
+
+    const temperatures = [
+    { degrees: 69, isRecordTemp: false }, 
+    {degrees: 82, isRecordTemp: false }, 
+    {degrees: 73, isRecordTemp: false }, 
+    { degrees: 64, isRecordTemp: false }
+];
+
+    console.log(temperatures.indexOf(64));
+   console.log(temperatures.includes(50));
+
+   const result = temperatures.some((temperature => temperature.isRecordTemp === true)) //true or false
+
+   const result2 = temperatures.every((temperature => temperature.isRecordTemp === false))
+
+        console.log(result)
+
+        console.log(result2)
+
+        //array challenge some and every
+        const songs = [
+    {song: "Shape of You", timesStreamed: 2.384, wonGrammy: true},
+    {song: "One Dance", timesStreamed: 1.791, wonGrammy: false},
+    {song: "Rockstar", timesStreamed: 1.781	, wonGrammy: false},
+    {song: "Closer", timesStreamed: 1.688, wonGrammy: false},
+    {song: "Thinking Out Loud", timesStreamed: 1.461, wonGrammy: true}
+]
+
+const thing12 = songs.some(song => 
+    song.wonGrammy === true
+)
+
+const streamed = songs.every(song =>
+    song.timesStreamed > 1.5);
+
+console.log(thing12)
+console.log(streamed)
+
+const newTemps = temperatures.map(temperature => 
+  temperature.degrees > 70 ? {...temperature, isHigh:true} :temperature);
+
+
+  console.log(newTemps)
+  
+  newTemps.forEach(temperature => {
+   if (temperature.isHigh) {
+     console.log(`Temperature ${temperature.degrees} was a record high last week!`);  
+   }
+})
+
+//more filter practice
+
+const restaurants = [
+  { name: 'Cap City Diner', milesAway: 2.2 },
+  { name: 'Chop Shop', milesAway: 4.1 },
+  { name: 'Northstar Cafe', milesAway: 0.9 },
+  { name: 'City Tavern', milesAway: 0.5 },
+  { name: 'Shake Shack', milesAway: 5.3 }
+]
+
+let newRest = restaurants.filter(restaurant =>
+restaurant.name.charAt(0) === 'C' && restaurant.milesAway < 3)
+
+const onlyRest = restaurants.find(restaurant => 
+  restaurant.name.toLowerCase().includes('north') && restaurant.milesAway < 3
+)
+
+console.log(newRest);
+console.log(onlyRest);
+
+//REDUCE OH GOD NO
+
+const menuItems = [
+  { item: "Blue Cheese Salad", price: 8 },
+  { item: "Spicy Chicken Rigatoni", price: 18 },
+  { item: "Ponzu Glazed Salmon", price: 23 },
+  { item: "Philly Cheese Steak", price: 13 },
+  { item: "Baked Italian Chicken Sub", price: 12 },
+  { item: "Pan Seared Ribeye", price: 31 }
+];
+
+let menuTotal = menuItems.reduce((accumulator, menuItem) => {
+    console.log(`accumulator: ${accumulator}, menu item price: ${menuItem.price}`)
+    return accumulator + menuItem.price;
+}, 0)
+
+console.log(menuTotal)
+
+
+//reduce challenge
+const cars = [
+  { name: "Toyota", isElectric: false, weight: 1320 },
+  { name: "Ford", isElectric: false, weight: 1400 },
+  { name: "Volkswagen", isElectric: false, weight: 1370 },
+  { name: "Honda", isElectric: false, weight: 1375 },
+  { name: "Tesla", isElectric: true, weight: 1750 },
+  { name: "BMW", isElectric: true, weight: 1350 },  
+];
+
+
+const electricCars = cars.filter(car => 
+    car.isElectric === true
+).reduce((accumulator, car) => {
+    return accumulator + car.weight;
+},0)
+
+
+console.log(electricCars)
+
+const numbers4 = [1,2,3,4,5,6];
+
+const doubled = numbers4.reduce((accumulator, number) => {
+    accumulator.push(number*2);
+    return accumulator;
+}, [])
+
+console.log(doubled)
+
+const three = numbers4.reduce((accumulator, number) => {
+    if(number > 3){
+        accumulator.push(number)
+    }
+    return accumulator;
+},[])
+
+console.log(three)
+
+var voters = [
+    {name:'Bob' , age: 30, voted: true},
+    {name:'Jake' , age: 32, voted: true},
+    {name:'Kate' , age: 25, voted: false},
+    {name:'Sam' , age: 20, voted: false},
+    {name:'Phil' , age: 21, voted: true},
+    {name:'Ed' , age:55, voted:true},
+    {name:'Tami' , age: 54, voted:true},
+    {name: 'Mary', age: 31, voted: false},
+    {name: 'Becky', age: 43, voted: false},
+    {name: 'Joey', age: 41, voted: true},
+    {name: 'Jeff', age: 30, voted: true},
+    {name: 'Zack', age: 19, voted: false}
+];
+
+
+ let voted = voters.reduce((accumulator, number) => {
+    if(number.voted === true){
+        accumulator.push(number)
+    }
+    return accumulator;
+ },[]).length
+
+
+console.log(voted);
+
+let totalVoter = voters.reduce((accumulator, number) => {
+   accumulator.push(number.voted)
+   return accumulator
+
+
+}, [])
+
+console.log(totalVoter)
+
+
+const array1 = ['a','b','c'];
+const array2 = ['d','e','f'];
+const array3 = array1.concat(array2)
+console.log(array3)
+
+
+let names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice']
+
+let namesTotal = names.reduce((accumulator,person) => {
+    if(person in accumulator){
+        accumulator[person]++
+    }
+    else {
+        accumulator[person] = 1
+    }
+    return accumulator
+}, [])
+
+console.log(namesTotal)
+
+
+
+    </script>
+</body>
+</html>

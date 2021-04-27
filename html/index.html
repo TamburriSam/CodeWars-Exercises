@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Loops: Task 1</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+
+    <section class="preview">
+
+
+
+    </section>
+
+  </body>
+  <script>
+    let myArray = ['tomatoes', 'chick peas', 'onions', 'rice', 'black beans'];
+    let list = document.createElement('ul');
+
+    for(let i = 0; i<=myArray.length; i++){
+        let items = document.createElement('li');
+        items.innerText = myArray[i];
+        list.appendChild(items);
+    }
+
+    const section = document.querySelector('section');
+    section.appendChild(list);
+
+
+    let numbers = [];
+
+
+for(i=100;i>=0;i--){
+numbers.push(i);
+let n = numbers[i] % 3;
+console.log(numbers[i])
+}
+
+  </script>
+
+</html>

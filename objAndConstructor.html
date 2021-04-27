@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object and Object constructors</title>
+</head>
+<body>
+    
+
+
+    <script>
+const playerOne = {
+  name: "tim",
+  marker: "X"
+}
+
+const playerTwo = {
+  name: "jenn",
+  marker: "O"
+}
+
+function Player(name, marker){
+    this.name = name
+    this.marker = marker
+    this.sayName = function(){
+        console.log(name)
+    }
+}
+
+const player = new Player('mike', 'X');
+
+console.log(player.sayName())
+
+console.log(player.name);
+
+
+
+function Book1(title,author,pages,read){
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.info = function(){
+      console.log(`${this.title} by ${this.author}, ${this.pages}, ${this.read}`)
+    }    
+}
+
+let bookWorm = new Book1('The Hobbit', 'J.R.R. Tolkien', '295 pages, not read yet')
+
+console.log(bookWorm.info())
+
+
+function Book(id,title,author,themes = []) {
+	this.id = id;
+	this.title = title;
+	this.author = author;
+	this.themes = themes;
+}
+
+Book.prototype.addTheme = function(newTheme){
+    this.themes = [newTheme];
+}
+
+const book1 = new Book(1, "Lord of the Rings", "JRR Tolkien");
+const book2 = new Book(2, "The Trial", "Franz Kafka");
+
+book1.addTheme('fantasy')
+book2.addTheme('corruption')
+
+
+
+//
+function Person(firstName, lastName, dob){
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.birthday = new Date(dob);
+/*   this.calculateAge = function(){
+    const diff = Date.now() - this.birthday.getTime();
+    const ageDate = new Date(diff);
+    return Math.abs(ageDate.getUTCFullYear()-1970);
+  } */
+}
+
+//calc age
+Person.prototype.calculateAge = function(){
+    const diff = Date.now() - this.birthday.getTime();
+    const ageDate = new Date(diff);
+    return Math.abs(ageDate.getUTCFullYear()-1970);
+  }
+
+  //get full name
+Person.prototype.getFullName = function(){
+  return `${this.firstName} ${this.lastName}`
+}
+
+//gets married
+Person.prototype.getsMarried = function(newLastName){
+  this.lastName = newLastName;
+}
+
+const john = new Person('John','Munez','8/12/90');
+
+const mary = new Person('mary','Munez','9/12/94');
+
+console.log(mary.getFullName())
+
+console.log(mary.getsMarried('smith'))
+
+console.log(mary.getFullName())
+
+
+//greeting
+Person.prototype.greeting = function(){
+  return `Hello there ${this.firstName} ${this.lastName}`
+}
+
+const person1 = new Person('sam','tamburri');
+
+console.log(person1.greeting())
+
+//customer constructor
+function Customer(firstName, lastName, phone, membership){
+  Person.call(this, firstName, lastName);
+  this.phone = phone;
+  this.membership = membership;
+}
+
+//inherit the person prototype methods
+Customer.prototype = Object.create(Person.prototype)
+
+//make customer.prototype return Customer()
+Customer.prototype.constructor = Customer;
+
+//create customer
+const customer1 = new Customer('Tom', 'Selleck', '444-444-4444', 'Standard')
+
+
+console.log(customer1)
+console.log(customer1.greeting())
+
+//customer greeting
+Customer.prototype.greeting = function(){
+  return `Hello there ${this.firstName} welcome to our company`
+}
+
+console.log(customer1.greeting())
+
+
+
+const personPrototypes = {
+  greeting: function(){
+    return `Hello there ${this.firstName} ${this.lastName}`
+  },
+  getsMarried: function(newLastName){
+    this.lastName = newLastName;
+  }
+}
+
+const james = Object.create(personPrototypes);
+
+james.firstName = 'James'
+james.lastName = 'Bernard'
+james.age = 30;
+james.getsMarried('thompson')
+
+console.log(james.greeting());
+
+//OR-SAME THING- DIFF WAY TO WRITE
+
+const brad = Object.create(personPrototypes, {
+  firstName: {value: 'Brad'},
+  lastName: {value: 'traversey'},
+  age: {value: 36}
+});
+
+console.log(brad.greeting())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* function accum(s) {
+let capitals = '';
+let total = '';
+totalArray = [];
+s = s.toLowerCase();
+  for(let i = 0; i < s.length; i++){
+    capitals=s[i][0].toUpperCase();
+    total = capitals +s[i].repeat(i+1);
+    total = total.substr(0, total.length-1)
+    totalArray.push(total);
+}
+return totalArray.join('-');
+    }
+
+    
+  
+
+  console.log(accum('NyffsGeyylB'))
+
+
+
+
+  var uniqueInOrder=function(iterable){
+
+    iterable = iterable.split('').filter(function(item, pos, self) {
+      return self.indexOf(item) == pos;
+    })
+
+    return iterable
+
+    
+  console.log(iterable)
+}
+
+
+console.log(uniqueInOrder('AAAABBBCCDAABBB')) */
+
+    </script>
+</body>
+</html>

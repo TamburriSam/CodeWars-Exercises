@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+    <script>
+
+
+let numbers = [2,5,1000]
+
+let names = ['sAm', 'hayL', 'olga']
+
+let doubledNumbers = numbers.map(function(number){
+    return number * 2
+})
+
+console.log(doubledNumbers)
+
+let stringedNumbers = numbers.map(function(number){
+    return number.toString()
+})
+
+console.log(stringedNumbers)
+
+
+let capitalizeNames = names.map(function(name){
+  let lowered= name.toLowerCase();
+  let removed= name.charAt(0).toUpperCase() + lowered.slice(1)
+  return removed
+})
+
+console.log(capitalizeNames)
+
+
+let people = [ {
+        name: "Angelina Jolie",
+        age: 80
+    },
+    {
+        name: "Eric Jones",
+        age: 2
+    },
+    {
+        name: "Paris Hilton",
+        age: 5
+    },
+    {
+        name: "Kayne West",
+        age: 16
+    },
+    {
+        name: "Bob Ziroll",
+        age: 100
+    }]
+
+    let listPeople = people.map(function(person){
+        return person.name
+    })
+
+    console.log(listPeople)
+
+    let goMatrix = people.map(function(person){
+       return person.age > 18 ? `${person.name} can go to the Matrix` : `${person.name} is under age`
+    })
+
+    console.log(goMatrix)
+
+    let readyDom = people.map(function(person){
+        return `<h1>${person.name}</h1><h2>${person.age}</h2`
+    })
+
+    console.log(readyDom)
+
+
+
+    </script>
+</body>
+</html>

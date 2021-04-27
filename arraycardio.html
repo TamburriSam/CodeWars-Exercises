@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array Cardio 💪💪</title>
+</head>
+<body>
+  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+  <script>
+    // ## Array Cardio Day 2
+
+    const people = [
+      { name: 'Wes', year: 1988 },
+      { name: 'Kait', year: 1986 },
+      { name: 'Irv', year: 1970 },
+      { name: 'Lux', year: 2015 }
+    ];
+
+    const comments = [
+      { text: 'Love this!', id: 523423 },
+      { text: 'Super good', id: 823423 },
+      { text: 'You are the best', id: 2039842 },
+      { text: 'Ramen is my fav food ever', id: 123523 },
+      { text: 'Nice Nice Nice!', id: 542328 }
+    ];
+
+    // Some and Every Checks
+    // Array.prototype.some() // is at least one person 19 or older?
+
+    const nineteenOrOlder = people.some(person => {
+        const currentYear = (new Date()).getFullYear();
+        return currentYear - person.year >= 19
+    })
+
+    console.log(nineteenOrOlder)
+
+
+
+
+
+    // Array.prototype.every() // is everyone 19 or older?
+
+    const allAdults = people.every(person => {
+        const currentYear = (new Date()).getFullYear();
+        return currentYear - person.year >= 19
+    })
+
+    console.log(allAdults)
+
+    // Array.prototype.find()
+    // Find is like filter, but instead returns just the one you are looking for
+    // find the comment with the ID of 823423
+
+    const findAdult = comments.find(comment => 
+     comment.id === 823423)
+
+    console.log(findAdult)
+
+    // Array.prototype.findIndex()
+    // Find the comment with this ID
+    // delete the comment with the ID of 823423
+
+
+    const index = comments.findIndex(comment => comment.id === 823423);
+    console.log(index)
+
+    const newComments = [
+        ...comments.slice(0, index),
+        ...comments.slice(index + 1)
+    ]
+
+    console.log(newComments)
+
+//recursion
+
+function multiply(arr, n) {
+    if (n <= 0) {
+      return 1;
+    } else {
+      return multiply(arr, n - 1) * arr[n - 1];
+    }
+  }
+console.log(multiply([2,3,4],6))
+
+
+
+
+
+
+    /* function sum(arr, n) {
+  // Only change code below this line
+if(n<=0){
+  return 1;
+} else {
+  return sum(arr, n+1) + arr[n+1]
+}
+  // Only change code above this line
+}
+
+console.log(sum([2, 3, 4], 1))
+
+ */
+
+// Setup
+var contacts = [
+    {
+        "firstName": "Akira",
+        "lastName": "Laine",
+        "number": "0543236543",
+        "likes": ["Pizza", "Coding", "Brownie Points"]
+    },
+    {
+        "firstName": "Harry",
+        "lastName": "Potter",
+        "number": "0994372684",
+        "likes": ["Hogwarts", "Magic", "Hagrid"]
+    },
+    {
+        "firstName": "Sherlock",
+        "lastName": "Holmes",
+        "number": "0487345643",
+        "likes": ["Intriguing Cases", "Violin"]
+    },
+    {
+        "firstName": "Kristian",
+        "lastName": "Vos",
+        "number": "unknown",
+        "likes": ["JavaScript", "Gaming", "Foxes"]
+    }
+];
+
+
+function lookUpProfile(name, prop){
+  for(let x = 0; x < contacts.length; x++){
+    if(contacts[x].firstName === name){
+      if(contacts[x].hasOwnProperty(prop)){
+        return contacts[x][prop]
+      } else {
+        return 'No Such Property'
+      }
+    }
+  }
+  return 'No Such Contact'
+}
+console.log(lookUpProfile('Akira', 'likes'))
+
+
+function countdown(n){
+  if(n < 1){
+    return [];
+  }else {
+    const countArray = countdown(n-1);
+    countArray.unshift(n);
+    return countArray;
+  }
+}
+
+console.log(countdown(10))
+
+
+function rangeOfNumbers(startNum, endNum) {
+  if(startNum > endNum){
+  return [];
+  } else {
+    const rangedNum = rangeOfNumbers(startNum + 1, endNum);
+    rangedNum.unshift(startNum)
+    return rangedNum
+  }
+};
+
+console.log(rangeOfNumbers(1,10))
+
+function pow(x, n) {
+  let result = 1;
+
+  // multiply result by x n times in the loop
+  for (let i = 0; i < n; i++) {
+    result *= x;
+  }
+
+  return result;
+}
+
+console.log( pow(2, 3) ); // 8
+
+function recursivePow(x, n){
+  if( n == 1 ){
+    return x;
+  }else {
+    return x * pow(x, n-1)
+  }
+}
+
+console.log(recursivePow(2,3))
+
+var voters = [
+    {name:'Bob' , age: 30, voted: true},
+    {name:'Jake' , age: 32, voted: true},
+    {name:'Kate' , age: 25, voted: false},
+    {name:'Sam' , age: 20, voted: false},
+    {name:'Phil' , age: 21, voted: true},
+    {name:'Ed' , age:55, voted:true},
+    {name:'Tami' , age: 54, voted:true},
+    {name: 'Mary', age: 31, voted: false},
+    {name: 'Becky', age: 43, voted: false},
+    {name: 'Joey', age: 41, voted: true},
+    {name: 'Jeff', age: 30, voted: true},
+    {name: 'Zack', age: 19, voted: false}
+];
+
+
+function totalVotes(arr) {
+  return arr.reduce((count, voter)=> {
+     return count + voter.voted
+  }, 0)  
+
+}
+
+console.log(totalVotes(voters))
+
+
+function bouncer(arr) {
+  return arr;
+}
+
+bouncer([7, "ate", "", false, 9]);
+
+  </script>
+</body>
+</html>

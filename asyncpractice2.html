@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async 2</title>
+  </head>
+  <body>
+    <script>
+      //example of callback
+      setTimeout(() => {
+        console.log("waited");
+      }, 1000);
+
+      //nested set timeout (callback hell example)
+      const btn = document.createElement("btn");
+      btn.innerHTML = "button";
+      btn.addEventListener("click", function () {
+        console.log("hey");
+      });
+      document.body.appendChild(btn);
+
+      //promises (evolution of idea of callbacks)
+      //creating a promise youre passing it a function that accepts both a resolve and reject callback and in your code you want to detect whether or not this thing is successfull ie resolve and reject
+
+      const myPromise = new Promise((resolve, reject) => {
+        const rand = Math.floor(Math.random() * 2);
+        if (rand == 0) {
+          resolve();
+        } else {
+          reject();
+        }
+      });
+
+      myPromise
+        .then(() => {
+          console.log("Success");
+        })
+        .catch(() => {
+          console.error("er");
+        });
+
+      //fetch XHR requests to server
+      fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err));
+
+      //Promise.all
+      /*
+      let urls = [
+        "https://api.github.com/users/iliakan",
+        "https://api.github.com/users/remy",
+        "https://api.github.com/users/jeresig",
+      ];
+
+      // map every url to the promise of the fetch
+      let requests = urls.map((url) => fetch(url));
+
+      // Promise.all waits until all jobs are resolved
+      Promise.all(requests).then((responses) =>
+        responses.forEach((response) =>
+          console.log(`${response.url}: ${response.status}`)
+        )
+      ); */
+
+      //async/await best practice
+    </script>
+  </body>
+</html>

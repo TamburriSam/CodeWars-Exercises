@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+<script>
+
+
+
+
+
+/*   
+for(i=0;i<10;i++){
+  let input = prompt('enter a number greater than 100');
+  if(input > 100){
+    console.log(input);
+    break;
+  }else if (input<100){
+    prompt('it has to be greater than 100')
+    continue;
+  }
+} */
+
+/* outer: for(i=0;i<10;i++){
+  let input = prompt('enter a number greater than 100');
+  if(input > 100)break outer;
+  console.log(input);
+} */
+
+
+
+/* for(i=0; i<=10; i++){
+     if(!(i % i === 0 && i % 2 === 0)){
+       console.log(i)
+     }
+   } */
+
+   function fahrenheit(num){
+     let x = (num-32)/2;
+     return x;
+   }
+
+   console.log(fahrenheit(32));
+
+
+   console.log('h')
+    
+
+
+
+
+
+
+function findSum(n) {
+  let multiples = [];
+  
+  for(let i = 1; i <=n; i++){
+      if(i % 3 === 0 || i % 5 === 0){
+        multiples.push(i)
+      }
+      
+    }
+  let sum= multiples.reduce((total, amount) => total + amount);
+
+  return sum
+}
+
+console.log(findSum(10))
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CW 4-26</title>
+  </head>
+  <body>
+    <script>
+      function alphanumeric(string) {
+        /*      string = string.split("");
+        let alphanumeric = [];
+        let notAlphanumeric;
+
+        for (let i = 0; i < string.length; i++) {
+          let regex = /[a-zA-Z0-9]/;
+
+          if (regex.exec(string[i])) {
+            alphanumeric.push(string[i]);
+          } else {
+            //console.log(string[i]);
+          }
+        }
+
+        //make sure everything is capital again
+        if (alphanumeric.join("") === string.join("")) {
+          return true;
+        } else {
+          return false;
+        } */
+        return /^[a-z\d]+$/gi.test(string);
+      }
+      console.log(alphanumeric("FA"));
+    </script>
+  </body>
+</html>

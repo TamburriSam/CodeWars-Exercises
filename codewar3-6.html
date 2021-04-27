@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeWar</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+
+
+function isSortedAndHow(array) {
+let phrase = ''
+
+
+let ascending = [...array].sort(function(a,b){
+    if(a<b){
+        return -1
+    } else {
+        return 1
+    }
+})
+
+let descending = [...array].sort(function(a,b){
+    if(a<b){
+        return 1
+    } else {
+        return -1
+    }
+})
+
+let ascend = ascending.join('');
+let descend = descending.join('');
+let ogArray = array.join('')
+
+ if(ogArray === ascend){
+    phrase = 'yes, ascending'
+}else if(ogArray === descend){
+    phrase = 'yes, descending'
+}else {
+    phrase = 'no'
+} 
+
+return phrase
+}
+
+console.log(isSortedAndHow([4,2,30]))
+
+
+
+
+
+
+
+
+
+
+
+
+function findOdd(A) {
+ 
+let odd = '';
+
+const transportation = A.reduce(function(accumulator, item){
+        if(item in accumulator){
+        accumulator[item]++;
+    }else {
+        accumulator[item] = 1
+    }
+        return accumulator;
+
+       
+    },{})
+
+    for(const [key,value] of Object.entries(transportation)){
+
+        if(value % 2 != 0){
+            odd = key;
+        }
+    }
+
+  return parseInt(odd);
+}
+
+
+console.log(findOdd([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]))
+
+
+
+    </script>
+</body>
+</html>

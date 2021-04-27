@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects22</title>
+</head>
+<body>
+    <script>
+
+
+const person = {
+  name: ['Bob', 'Smith'],
+  age: 32,
+  gender: 'male',
+  interests: ['music', 'skiing'],
+  bio: function() {
+    alert(this.name[0] + ' ' + this.name[1] + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+  },
+  greeting: function() {
+    alert('Hi! I\'m ' + this.name[0] + '.');
+  }
+};
+
+console.log(person)
+
+
+let cat = {
+  name : 'Bertie',
+  breed : 'Cymric',
+  color : 'white',
+  greeting: function() {
+    console.log('Hello, said ' + this.name + ' the ' + this.breed);
+  }
+}
+    
+
+function mutation(arr) {
+  let arr1 = arr[0];
+  let arr2 = arr[1];
+
+  let lowered1 = arr1.toLowerCase().split('');
+  let lowered2 = arr2.toLowerCase().split('');
+
+  let cases = lowered2.filter(lower => lowered1.includes(lower));
+
+
+  lowered2 = lowered2.join('');
+  cases = cases.join('');
+
+  console.log(lowered1, lowered2, cases)
+
+  if(lowered2===cases){
+    return true
+  } else {
+    return false
+  }
+
+
+
+
+  
+}
+
+console.log(mutation(["hello", "hey"]))
+
+
+function getIndexToIns(arr, num) {
+  
+  arr.push(num)
+
+  let sortedArr = arr.sort(function(a,b){
+    if(a<b){
+        return -1
+    } else {
+        return 1
+    }
+})
+
+  let indexNo = sortedArr.indexOf(num)
+
+
+
+console.log(sortedArr, indexNo)
+}
+
+getIndexToIns([2, 5, 10], 15);
+
+
+function descendingOrder(n){
+
+  let stringed =n.toString();
+
+  stringed = stringed.split('');
+
+  let sortedArr = stringed.sort(function(a,b){
+    if(a<b){
+        return 1
+    } else {
+        return -1
+    }
+})
+
+sortedArr = sortedArr.join('');
+
+return parseInt(sortedArr)
+
+}
+
+console.log(descendingOrder(123456789))
+
+
+
+
+
+
+
+
+
+
+function order(words){
+
+  //words = words.split(' ')
+let indexNo = ''
+  
+  let myRegex = /[1-9]/g;
+
+
+  let newWord = words.match(myRegex)
+
+  words = words.split(' ')
+
+
+for(i=0;i<words.length;i++){
+
+   indexNo += words[i].indexOf(newWord[i]).toString();
+
+  
+   
+  console.log(indexNo)
+
+
+}
+
+
+
+
+console.log(words, newWord, indexNo)
+
+}
+
+
+
+
+
+
+console.log(order("is2 Thi1s T4est 3a"))
+
+    </script>
+</body>
+</html>

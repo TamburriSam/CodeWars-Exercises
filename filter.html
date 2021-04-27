@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter</title>
+</head>
+<body>
+    <script>
+
+let fiveGreater = [3,6,8,2];
+
+let fiveGreaterAnswer = fiveGreater.filter(function(great){
+   return great > 5
+})
+
+console.log(fiveGreaterAnswer)
+
+let evenOnly = fiveGreater.filter(function(great){
+    return great % 2 === 0;
+})
+
+console.log(evenOnly)
+
+let charStrings = ["dog", "wolf", "by", "family", "eaten", "camping"];
+
+let charsStringsAnswer = charStrings.filter(function(string){
+    return string.length <= charStrings.length-1;
+})
+
+console.log(charsStringsAnswer)
+
+
+let peopleObjects = [
+    { name: "Angelina Jolie", member: true },
+    { name: "Eric Jones", member: false },
+    { name: "Paris Hilton", member: true },
+    { name: "Kayne West", member: false },
+    { name: "Bob Ziroll", member: true }
+];
+
+let peopleObjectsAnswer = peopleObjects.filter(function(peeps){
+    return peeps.member
+})
+
+console.log(peopleObjectsAnswer)
+
+
+
+let peopleTwo = [{ name: "Angelina Jolie", age: 80 },
+    { name: "Eric Jones", age: 2 },
+    { name: "Paris Hilton", age: 5 },
+    { name: "Kayne West", age: 16 },
+    { name: "Bob Ziroll", age: 100 }]
+
+let peopleObjectsAnswerTwo = peopleTwo.filter(function(peeps){
+    return peeps.age > 18
+})
+
+console.log(peopleObjectsAnswerTwo)
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
